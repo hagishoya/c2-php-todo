@@ -1,6 +1,6 @@
 <div class="form-group">
     <label for="title">タスク名</label>
-    <input type="text" class="form-control" name="title" placeholder="ゴミ出し" required>
+    <input type="text" class="form-control" name="title" placeholder="(例)ゴミ出し" required>
 </div>
 <div class="form-group">
     <label for="due_date">期限</label>
