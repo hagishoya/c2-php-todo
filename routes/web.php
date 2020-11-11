@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TodoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,6 +20,6 @@ Auth::routes();
 
 Route::group(['middleware' => ['web', 'auth']], function () {
     Route::resource('todo', 'TodoController', ['only' => [
-        'index', 'show'
+        'index', 'show', 'create'
     ]]);
 });
