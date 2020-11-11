@@ -39,7 +39,10 @@ class TodoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $todo = new Todo();
+
+        Auth::user()->todos()->save($todo);
+        return view('');
     }
 
     /**
