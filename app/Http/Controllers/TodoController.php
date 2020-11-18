@@ -82,7 +82,15 @@ class TodoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //フォームから送信されたタスクを置き換える
+        $todo = Auth::user()->todos()->findOrFail($id);
+        $todo->title = $request->title;
+        $todo->due_date = $request->due_date;
+        $todo->status = TODO::STATUS_NOT_YET;
+        $todo->save();
+
+        //タスク単体ページにリダイレクト
+        return redirect()->to('todo/')
     }
 
     /**
