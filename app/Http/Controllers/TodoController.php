@@ -101,5 +101,10 @@ class TodoController extends Controller
     public function destroy($id)
     {
         //
+        $todo = Auth::user()->todos()->findOrFail($id);
+        $todo->delete();
+
+        $todo_list = Auth::user()->todos()->paginate(self::PAGE_SIZE);
+        return view('todo/index', compact('todo_list'));
     }
 }
