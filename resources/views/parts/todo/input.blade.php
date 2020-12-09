@@ -6,6 +6,19 @@
     <label for="due_date">期限</label>
     <input type="date" class="form-control" name="due_date" placeholder="2020/10/31" value="{{ $todo && $todo->due_date ? $todo->due_date: '' }}" required>
 </div>
+<div class="form-group">
+    <label for="due_date">状態</label>
+    <select id = "status" class="form-control" name="status">
+        @foreach(\App\Todo::STATUS as $key => $val)
+            <option
+                value="{{$key}}"
+                {{$todo && $key==old('status',$todo->status) ? 'selected':''}}
+            >
+            {{$val}}
+            </option>
+        @endforeach
+    </select>
+</div>
 <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
 
 @if ($errors->any())
