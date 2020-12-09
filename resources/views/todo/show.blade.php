@@ -31,7 +31,20 @@
             </tr>
             </tbody>
         </table>
+        
         @include('parts.button.back')
+        <a href="/todo/{{ $todo->id }}/edit" class="btn btn-success">
+            <i class="fas fa-edit mr-2"></i>
+            編集
+        </a>
+        <form action="/todo/{{ $todo->id }}" method="POST">
+        @method('DELETE')
+        @csrf
+            <button class="btn btn-danger" type="submit">
+                <i class="fas fa-trash-alt mr-2"></i>
+                削除
+            </button>
+        </form>
     </div>
 </div>
 
